@@ -20,14 +20,41 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("books")
 public class BookController {
 
+    HashMap<Integer,Book> bookStore = new HashMap<Integer, Book>();
+
     @Autowired
     BookService bookService;
+
+    private List<Book> bookList;
+    private int id;
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public BookController(){
+        this.bookList = new ArrayList<Book>();
+        this.id = 1;
+    }
 
     // post request /create-book
     // pass book as request body
     @PostMapping("/create-book")
     public ResponseEntity<Book> createBook(@RequestBody Book book){
         // Your code goes here.
+
         return new ResponseEntity<>(book, HttpStatus.CREATED);
     }
 
