@@ -1,5 +1,6 @@
 package com.driver;
 
+
 public class Book {
     
      private int id;
@@ -11,7 +12,6 @@ public class Book {
      private String author;
 
      public Book(){
-
      }
 
     public Book(String name, String genre, String author) {
